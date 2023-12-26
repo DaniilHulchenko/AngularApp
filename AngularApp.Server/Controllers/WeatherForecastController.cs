@@ -1,4 +1,5 @@
-using AngularApp.Server.Models;
+using AngularApp.Server.Domain.Models;
+using AngularApp.Server.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AngularApp.Server.Controllers
@@ -14,14 +15,23 @@ namespace AngularApp.Server.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        private readonly iMovieRepository _data;
+
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, iMovieRepository data)
         {
+            _data = data;
             _logger = logger;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IEnumerable<WeatherForecast>> Get()
         {
+
+            var data = await _data.GetAllMoviesAsync();
+            
+     
+
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),

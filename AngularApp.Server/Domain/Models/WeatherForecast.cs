@@ -1,4 +1,4 @@
-namespace AngularApp.Server.Models
+namespace AngularApp.Server.Domain.Models
 {
     public class WeatherForecast
     {
