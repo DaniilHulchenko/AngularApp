@@ -18,7 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen();
 
 /*############################# MongoDB ###########################################################*/
 builder.Services.Configure<MongoSettings>(builder.Configuration.GetSection("MongoSettings"));
@@ -26,6 +26,17 @@ builder.Services.AddSingleton<ApplicationDbContext>();
 
 /*############################## Repositories ######################################################*/
 builder.Services.AddScoped<iMovieRepository, MovieRepository>();
+/*############################## localhost 4200 #######################################################*/
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost4200",
+        builder =>
+        {
+            builder.WithOrigins("https://localhost:4200")
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
 /*##################################################################################################*/
 
 var app = builder.Build();
@@ -36,13 +47,16 @@ app.UseStaticFiles();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+// 4200
+app.UseCors("AllowLocalhost4200");
 
 app.MapControllers();
 

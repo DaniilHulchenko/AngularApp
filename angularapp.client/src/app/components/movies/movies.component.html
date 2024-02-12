@@ -1,0 +1,17 @@
+<p *ngIf="!Movies"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
+
+<div *ngFor="let movie of Movies">
+  <h2>{{ movie.title }}</h2>
+  <p><strong>Режиссер:</strong> {{ movie.director }}</p>
+  <p><strong>Год выпуска:</strong> {{ movie.release_year }}</p>
+  <p><strong>Жанр:</strong> {{ movie.genre.join(', ') }}</p>
+  <p><strong>Актеры:</strong> {{ movie.actors.join(', ') }}</p>
+  <p><strong>Страна:</strong> {{ movie.country }}</p>
+  <p><strong>Длительность:</strong> {{ movie.duration_minutes }} минут</p>
+  <p><strong>Статус выпуска:</strong> {{ movie.is_released ? 'Выпущен' : 'Не выпущен' }}</p>
+  <p><strong>Рейтинг:</strong> {{ movie.rating }}</p>
+  <p><strong>Описание:</strong> {{ movie.description }}</p>
+  <img [src]="movie.image" [alt]="movie.title" width="300" height="400">
+  <p><strong>Просмотрено:</strong> {{ movie.watched ? 'Да' : 'Нет' }}</p>
+</div>
+<br /><br />
