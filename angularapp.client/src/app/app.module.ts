@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { WeatherComponent } from './components/weather/weather.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ApplicationApiContext } from './Services/ApplicationApiContext';
 
 
 
@@ -15,9 +16,11 @@ import { RouterModule, Routes } from '@angular/router';
     AppComponent,
     WeatherComponent,
     MoviesComponent
+    ApplicationApiContext
   ],
   imports: [
-    BrowserModule, HttpClientModule,
+    BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

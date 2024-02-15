@@ -1,25 +1,43 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Movie } from '../../Models/Movies';
+import { ApplicationApiContext } from '../ApplicationApiContext';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
-  private apiUrl = 'https://localhost:7224';
 
   constructor(private http: HttpClient) { }
 
   // Метод для получения списка всех фильмов
   getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(`${this.apiUrl}/movie`);
+    return this.http.get<Movie[]>(`movie`);
   }
 
   // Метод для получения информации о конкретном фильме по его ID
   getMovieById(movieId: string): Observable<Movie> {
-    return this.http.get<Movie>(`${this.apiUrl}/movie/${movieId}`);
+    return this.http.get<Movie>(`movie/${movieId}`);
   }
 
-  // Другие методы, например, для добавления, обновления и удаления фильмов
+
+
+  //constructor(private http: HttpClient, private Config: ApplicationApiContext) { }
+  //private apiUrl?: string;
+  //ngOnInit() {
+  //  this.Config.getConfig().subscribe(config => {
+  //    this.apiUrl = config.apsapiurl;
+  //    console.log(this.apiUrl); // Make sure apiUrl is set correctly
+  //  });
+  //}
+  //// Метод для получения списка всех фильмов
+  //getMovies(): Observable<Movie[]> {
+  //  return this.http.get<Movie[]>(`${this.apiUrl}/movie`);
+  //}
+
+  //// Метод для получения информации о конкретном фильме по его ID
+  //getMovieById(movieId: string): Observable<Movie> {
+  //  return this.http.get<Movie>(`${this.apiUrl}/movie/${movieId}`);
+  //}
 }

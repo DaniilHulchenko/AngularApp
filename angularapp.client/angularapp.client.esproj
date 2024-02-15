@@ -7,4 +7,34 @@
     <!-- Folder where production build objects will be placed -->
     <PublishAssetsDirectory>$(MSBuildProjectDirectory)\dist\angularapp.client\</PublishAssetsDirectory>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="src\assets\config.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\Services\ApplicationApiContext.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\Services\ApplicationApiContext.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\Services\ApplicationApiContext.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\Services\ApplicationApiContext.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\assets\config.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\assets\config.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\app-routing.module.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\Services\ApplicationApiContext.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\Services\ApplicationApiContext.ts" />
+  </ItemGroup>
 </Project>
