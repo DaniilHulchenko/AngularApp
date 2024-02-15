@@ -16,7 +16,7 @@ import { ApplicationApiContext } from './Services/ApplicationApiContext';
     AppComponent,
     WeatherComponent,
     MoviesComponent
-    ApplicationApiContext
+    //ApplicationApiContext
   ],
   imports: [
     BrowserModule,
