@@ -11,14 +11,20 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
+
   // Метод для получения списка всех фильмов
-  getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(`movie`);
+  getMovies(i ?: number ): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`movie/${i}`);
   }
 
   // Метод для получения информации о конкретном фильме по его ID
   getMovieById(movieId: string): Observable<Movie> {
     return this.http.get<Movie>(`movie/${movieId}`);
+  }
+
+  get_more_Movies(from: number, to: number): Observable<Movie[]>{
+    //let resalt = this.http.get<Movie[]>(`movie/${from}/${to}`)
+    return this.http.get<Movie[]>(`movie/getslice/${from}/${to}`);
   }
 
 

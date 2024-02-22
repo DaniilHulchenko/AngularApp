@@ -30,12 +30,15 @@ import { MovieService } from '../../Services/Movie/MovieService';
 //  }
 //}
 export class MoviesComponent implements OnInit {
-  public Movies: Movie[] = [];
 
-  constructor( private movieService: MovieService) { }
+  constructor(private movieService: MovieService) { }
+
+  public Movies: Movie[] = [];
+  private i: number = 0;
 
   ngOnInit(): void {
-    this.movieService.getMovies().subscribe(
+    this.i = 1;
+    this.movieService.getMovies(this.i).subscribe(
         (result) => {
           this.Movies = result;
         },
@@ -43,5 +46,14 @@ export class MoviesComponent implements OnInit {
           console.error(error);
         }
       );
+  }
+  getmoreMovies(to: number): void {
+    //console.log(this.i)
+    to += this.i;
+    this.movieService.get_more_Movies(this.i, to).subscribe(
+      (res) => {
+        this.Movies = this.Movies.concat(res);
+      });
+
   }
 }

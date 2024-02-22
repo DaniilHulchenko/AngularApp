@@ -13,5 +13,7 @@
   <p><strong>Описание:</strong> {{ movie.description }}</p>
   <img [src]="movie.image" [alt]="movie.title" width="300" height="400">
   <p><strong>Просмотрено:</strong> {{ movie.watched ? 'Да' : 'Нет' }}</p>
+  <a>####################################################</a>
 </div>
-<br /><br />
+
+<button (click)="getmoreMovies(3)">More</button>

@@ -8,6 +8,16 @@ Accept: application/json
 GET {{AngularApp.Server_HostAddress}}/movie/
 Accept: application/json
 
+############### Movie GET_first_2 ###############
+GET {{AngularApp.Server_HostAddress}}/movie/1
+Accept: application/json
+
 ############### Movie GET_ID ###############
 GET {{AngularApp.Server_HostAddress}}/movie/653927fb47981feeebf70d96
 Accept: application/json
+
+
+############### Movie GET_ID ###############
+GET {{AngularApp.Server_HostAddress}}/movie/getslice/1/3
+Accept: application/json
+
